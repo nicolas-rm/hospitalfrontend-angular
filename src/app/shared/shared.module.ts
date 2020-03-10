@@ -3,7 +3,7 @@
  * SECCION DE SHARED (TODO LO QUE SE REUTILIZA)
  * LO COMPARTIDO
  */
-
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
@@ -17,7 +17,6 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 /* ==================>> COMPONENTES <<================== */
 /* ===================================================== */
 
-
 @NgModule({
     declarations: [
         HeaderComponent,
@@ -30,6 +29,9 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
         SidebarComponent,
         BreadcrumbsComponent,
         NopagefoundComponent
+    ],
+    imports: [
+        BrowserModule
     ]
 })
 

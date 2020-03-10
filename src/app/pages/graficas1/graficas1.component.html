@@ -1,1 +1,14 @@
-<p>graficas1 works!</p>
+<div class="row">
+    <div class="col-md-6" *ngFor="let item of graficos | keyvalue; let i = index">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">
+                    {{ (i + 1 )}} - {{ 'GRAFICA, ' | uppercase}} {{ item.value.leyenda | uppercase}}
+                </h4>
+                <app-grafico-dona [ChartData]="item.value.data" [ChartLabels]="item.value.labels" [ChartType]="item.value.type">
+                </app-grafico-dona>
+
+            </div>
+        </div>
+    </div>
+</div>
