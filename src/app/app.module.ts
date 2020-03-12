@@ -30,6 +30,16 @@ import { FormsModule } from '@angular/forms';
 /* ==================>> COMPONENTES <<================== */
 /* ===================================================== */
 
+
+/* ===================================================== */
+/* ===================>> SERVICIOS <<=================== */
+import { SettingsService } from './services/settings.service';
+
+/* ===================>> SERVICIOS <<=================== */
+/* ===================================================== */
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +54,7 @@ import { FormsModule } from '@angular/forms';
     PagesModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
