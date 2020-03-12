@@ -31,6 +31,7 @@ import { PAGES_ROUTES } from './pages.routes';
 
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { BrowserModule } from '@angular/platform-browser';
         ProgressComponent,
         Graficas1Component,
         IncrementadorComponent,
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        AccountSettingsComponent
     ],
     exports: [
         DashboardComponent,
