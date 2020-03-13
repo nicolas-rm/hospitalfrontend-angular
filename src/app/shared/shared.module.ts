@@ -4,6 +4,7 @@
  * LO COMPARTIDO
  */
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 
@@ -31,7 +32,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
         NopagefoundComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        RouterModule
     ]
 })
 
