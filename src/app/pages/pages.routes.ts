@@ -22,15 +22,24 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 
 const routes: Routes = [
     /* RUTAS SECUNDARIAS */
+    /* ESTRUCTURA DE UNA RUTA: */
+
+    /**
+     * PATH: NOMBRE DE LA RUTA
+     * COMPONENT: COMPONENTE AL CUAL HACE REFERENCIA
+     * DATA(OPCIONAL): COSAS EXTRAS, TITULO, DESCRIPCION
+     * ENTRE OTRAS....
+     * 
+     */
     {
         path: '', component: PagesComponent,
         children: [
-            { path: 'progress', component: ProgressComponent },
-            { path: 'dashboard', component: DashboardComponent },
-            { path: 'graficas1', component: Graficas1Component },
-            { path: 'promesas', component: PromesasComponent }, 
-            { path: 'observables', component: RxjsComponent }, 
-            { path: 'account-settings', component: AccountSettingsComponent },
+            { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress' } },
+            { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
+            { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Graficas' } },
+            { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' } },
+            { path: 'observables', component: RxjsComponent, data: { titulo: 'Observables' } },
+            { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del Tema' } },
             /* REDIRECCION */
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]

@@ -9,7 +9,10 @@ import { SettingsService } from './services/services.index';
 export class AppComponent {
   title = 'AdminPro';
 
-
+  /* INSTANCIACION DEL LOS DATOS DEL TEMA */
+  /* NOTA CUANDO SE INSTANCIAN AUTOMATICAMENTE SE MANDA A LLAMAR
+  Y SE INTEGRAN LAS CONFIGURACIONES CORRESPONDIENTES DEL TEMA
+  SELECCIONADO  */
   constructor(public _AJUSTES: SettingsService) {
   }
 }

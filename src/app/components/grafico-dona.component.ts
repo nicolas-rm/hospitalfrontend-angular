@@ -7,16 +7,34 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GraficoDonaComponent implements OnInit {
 
+  /**
+   * GRAFICA DE DONAS.
+   * 
+   * VALORES NECESARIOS PARA QUE FUNCIONE
+   * LA GRAFICA.
+   * 
+   * Data: EL VALOR DEL PORCENTAJE
+   * Labels: EL DATO DE LA GRAFICA
+   * Type: EL TIPO DE GRAFICA
+   * 
+   */
+
+
+  /**
+   * @INPUT: SIRVE PARA RECIBIR DATOS
+   * FUERA DEL COMPONENTE.
+   * (DONDE SE LLAMA AL COMPONENTE)
+   * DESDE EL SELECTOR
+   * 
+   * GRAFICAS1.COMPONENT.HTML
+   *  
+   */
+
+
   @Input() ChartData: number[] = [];
   @Input() ChartLabels: string[] = [];
   @Input() ChartType: string = '';
 
-  /* DATOS DE LA GRAFICA */
-  // public ChartLabels: string[] = ['VALOR 1', 'VALOR 2', 'VALOR 3', 'VALOR 4'];
-
-  // public ChartData: number[] = [50, 100, 150, 200];
-
-  // public ChartType: string = 'doughnut';
   constructor() { }
 
   ngOnInit(): void {

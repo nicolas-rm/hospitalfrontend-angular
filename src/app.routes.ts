@@ -14,6 +14,13 @@ import { NopagefoundComponent } from './app/shared/nopagefound/nopagefound.compo
 /* ===================================================== */
 
 const routes: Routes = [
+    /**
+     * PATH: NOMBRE DE LA RUTA
+     * COMPONENT: COMPONENTE AL CUAL HACE REFERENCIA
+     * DATA(OPCIONAL): COSAS EXTRAS, TITULO, DESCRIPCION
+     * ENTRE OTRAS....
+     * 
+     */
     /* RUTAS PRINCIPALES */
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },

@@ -7,14 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Graficas1Component implements OnInit {
 
+
+  
   /* DATOS DE LA GRAFICA */
-  public ChartLabels: string[] = ['VALOR 1', 'VALOR 2', 'VALOR 3', 'VALOR 4'];
-
-  public ChartData: number[] = [50, 100, 150, 200];
-
-  public ChartType: string = 'doughnut';
-
-  valor: any;
+  /**
+   * GRAFICA DE DONAS.
+   * VALORES NECESARIOS PARA QUE FUNCIONE
+   * LA GRAFICA.
+   * 
+   * Data: EL VALOR DEL PORCENTAJE
+   * Labels: EL DATO DE LA GRAFICA
+   * Type: EL TIPO DE GRAFICA
+   */
+  
   graficos: any = {
     grafico1: {
       labels: ['Con Frijoles', 'Con Natilla', 'Con tocino'],
@@ -43,20 +48,11 @@ export class Graficas1Component implements OnInit {
   };
 
 
-  object: { [key: number]: string } = { 2: 'foo', 1: 'bar' };
-  map = new Map([[2, 'foo'], [1, 'bar']]);
   constructor() {
-    // for (let index = 0; index < this.graficos.length; index++) {
-    console.log(this.graficos);
-    // }
+
   }
 
   ngOnInit(): void {
-    // this.ChartType.length
-    // tslint:disable-next-line: prefer-for-of
-  }
 
-  valores(valores) {
-    console.log('VALORES', valores);
   }
 }

@@ -19,32 +19,19 @@ export class PromesasComponent implements OnInit {
 
     });
 
-    /* MANEJO DE ASYNC - AWAIT */
-    this.asyncAwait();
+
   }
 
   ngOnInit(): void {
   }
 
-  async asyncAwait() {
-    try {
-      let contador = 0;
-      const intervalo = setInterval(() => {
-        contador = contador + 1;
-        console.log(contador);
-        if (contador === 3) {
-          clearInterval(intervalo);
-        }
-      }, 1000);
-    } catch (err) {
-      console.error(err);
-
-    }
-  }
 
   contarTres() {
     return new Promise((resolve, reject) => {
       let contador = 0;
+
+      /* setInterval: ES UN TIMER, PARA LA EJECUCION 
+      POR TIEMPOS */
       const intervalo = setInterval(() => {
         contador = contador + 1;
         console.log(contador);

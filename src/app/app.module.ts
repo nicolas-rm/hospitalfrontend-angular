@@ -23,9 +23,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { PagesModule } from './pages/pages.module';
-// import { IncrementadorComponent } from './components/incrementador/incrementador.component';
 import { FormsModule } from '@angular/forms';
-// import { GraficoDonaComponent } from './components/grafico-dona.component';
 
 /* ==================>> COMPONENTES <<================== */
 /* ===================================================== */
@@ -41,18 +39,32 @@ import { ServicesModule } from './services/services.module';
 
 
 @NgModule({
+  /**
+   * DECLARACIONES: TODOS LOS COMPONENTES
+   * EN LA SECCION ACTUAL (PRINCIPAL)
+   */
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
-    // GraficoDonaComponent,
-    // IncrementadorComponent
+    RegisterComponent
   ],
+  /**
+   * IMPORTACIONES: TODO LO QUE NO PERTENECE
+   * A LA SECCION ACTUAL (PRINCIPAL)
+   * --> TODO LO QUE SE USA EN LA SECCION (PRINCIPAL)
+   * PERO ES EXTERNO (OTRAS SECCIONES) <--
+   * 
+   */
   imports: [
+    /* UTILIZACION DE CICLOS Y CONDICIONALES */
     BrowserModule,
+    /* IMPORTACION DE LAS RUTAS PRINCIPALES */
     APP_ROUTES,
+    /* CONFIGURACION DE TODAS LAS PAGINAS */
     PagesModule,
+    /* UTILIZACION DEL NGMODEL */
     FormsModule,
+    /* UTILIZACION DE LOS SERVICIOS CORRESPONDIENTES */
     ServicesModule
   ],
   providers: [],
