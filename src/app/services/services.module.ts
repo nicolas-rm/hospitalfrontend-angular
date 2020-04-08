@@ -10,7 +10,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /* IMPORTACION DE LOS SERVICIOS, DESDE EL ARCHIVO INDEX */
-import { SharedService, SettingsService, SidebarService } from './services.index';
+import { SharedService, SettingsService, SidebarService, UsuarioService } from './services.index';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,14 +19,17 @@ import { SharedService, SettingsService, SidebarService } from './services.index
   declarations: [],
   imports: [
     /* UTILIZACION PARA ESTRUCTURAS CONFICIONALES Y CICLICAS */
-    CommonModule
+    CommonModule,
+    /* MODULO PARA REALIZAR PETICIONES HTTP EN LOS SERVICIOS */
+    HttpClientModule
   ],
   providers: [
-    /* TODOS LOS SERVICIOS A UTILIZAR 
+    /* TODOS LOS SERVICIOS A UTILIZAR
     ENTRE LAS SECCIONES DESIGNADAS */
     SharedService,
     SettingsService,
-    SidebarService
+    SidebarService,
+    UsuarioService
   ]
 })
 export class ServicesModule { }

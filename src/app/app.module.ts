@@ -2,7 +2,7 @@
 /**
  * MODULO PRINCIPAL
  * TODAS LAS IMPORTACIONES PRINCIPALES
- *  
+ *
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { PagesModule } from './pages/pages.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* ==================>> COMPONENTES <<================== */
 /* ===================================================== */
@@ -53,7 +53,7 @@ import { ServicesModule } from './services/services.module';
    * A LA SECCION ACTUAL (PRINCIPAL)
    * --> TODO LO QUE SE USA EN LA SECCION (PRINCIPAL)
    * PERO ES EXTERNO (OTRAS SECCIONES) <--
-   * 
+   *
    */
   imports: [
     /* UTILIZACION DE CICLOS Y CONDICIONALES */
@@ -64,6 +64,8 @@ import { ServicesModule } from './services/services.module';
     PagesModule,
     /* UTILIZACION DEL NGMODEL */
     FormsModule,
+    /* UTILIZAR VALIDACIONES POR PARTE DEL TS | UTILIZACION DEL FORMGROUP*/
+    ReactiveFormsModule,
     /* UTILIZACION DE LOS SERVICIOS CORRESPONDIENTES */
     ServicesModule
   ],
