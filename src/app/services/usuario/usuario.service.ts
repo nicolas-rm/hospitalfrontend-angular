@@ -5,6 +5,7 @@ import { URL_SERVICIOS, SWAL_CREATE } from '../../config/config';
 
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,11 +15,25 @@ export class UsuarioService {
   usuario: Usuarios;
   token: string;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public router: Router) {
     console.log('Servicio De Usuario Listo');
+
+    this.cargarStorage();
   }
 
+  loginActive() {
+    return (this.token.length > 5) ? true : false;
+  }
 
+  cargarStorage() {
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+      this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    } else {
+      this.token = '';
+      this.usuario = null;
+    }
+  }
   guardarStorage(ID_USUARIO: string, TOKEN: string, USUARIO: Usuarios) {
     /* GUARDADO DE DATOS DEL USUARIO EN EL LOCAL STORAGE */
     localStorage.setItem('id', ID_USUARIO);
@@ -66,6 +81,15 @@ export class UsuarioService {
 
       return true;
     }));
+  }
+
+
+  logout() {
+    this.token = '';
+    this.usuario = null;
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    this.router.navigate(['/login']);
   }
 
 

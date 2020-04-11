@@ -13,18 +13,18 @@ export class BreadcrumbsComponent implements OnInit {
   /**
    * router: Router: UTILIZADO PARA SACAR EL TITULO
    * PARA LA CABECERA DE LA PESTAÑA.
-   * 
-   * title: Title: UTILIZADO PARA MANDAR EL TITULO 
+   *
+   * title: Title: UTILIZADO PARA MANDAR EL TITULO
    * A LA CABECERA DE LA PESTAÑA.
-   * 
+   *
    * meta: Meta: CREA UNA ETIQUETA META (INVISIBLE)
    * PARA LA IDENTIFICACION DEL COMPONENTE O LA PESTAÑA.
-   * 
+   *
    */
   constructor(private router: Router, private title: Title, private meta: Meta) {
 
     this.getDataRoute().subscribe((resultado) => {
-      // console.log(resultado);
+      console.log(resultado);
 
       /* OBTIENE EL TITULO DE LA PAGINA DEL SUBCRIBE DE LA RUTA */
       this.titulo = resultado.titulo;
@@ -38,7 +38,7 @@ export class BreadcrumbsComponent implements OnInit {
          * VALORES POR DEFAULT DE UNA METADEFINITION
          * name: NOMBRE QUE RECIBE EL META-TAG
          * content: TIPO DE CONTENIDO QUE CONTIENE LA ETIQUETA
-         * 
+         *
          */
         name: 'Descripcion',
         content: this.titulo
@@ -56,7 +56,7 @@ export class BreadcrumbsComponent implements OnInit {
   ARRIBA EN LA PESTAÑA */
   getDataRoute() {
     return this.router.events.pipe(
-      /* ACTIVATIONEND: EVENTO DONDE EXISTE 
+      /* ACTIVATIONEND: EVENTO DONDE EXISTE
       UN PARAMETRO DIFERENTE ENTRE TODOS LOS DEMAS
       EVENTOS */
       filter((eventos) => {
@@ -74,7 +74,7 @@ export class BreadcrumbsComponent implements OnInit {
           return true;
         }
       }),
-      /* MAP: UTILIZADO PARA SELECCIONAR, SOLAMENTE EL 
+      /* MAP: UTILIZADO PARA SELECCIONAR, SOLAMENTE EL
       DATO QUE SE NECESITA PARA PONER UN TITULO EN LA CABECERA */
       map((eventos: ActivationEnd) => {
         return eventos.snapshot.data;

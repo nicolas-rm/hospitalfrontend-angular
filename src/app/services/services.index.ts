@@ -1,3 +1,7 @@
+export { LoginGuardGuard } from './guards/login-guard.guard';
+
+
+
 /**
  * TS, CON EL CUAL SE SIMPLICA LA IMPORTACION DE
  * LOS ARCHIVOS QUE SE VAYAN NECESITANDO.
