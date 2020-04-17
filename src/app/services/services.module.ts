@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /* IMPORTACION DE LOS SERVICIOS, DESDE EL ARCHIVO INDEX */
-import { SharedService, SettingsService, SidebarService, UsuarioService, LoginGuardGuard } from './services.index';
+import { SubirArchivoService, SharedService, SettingsService, SidebarService, UsuarioService, LoginGuardGuard } from './services.index';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -30,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     SettingsService,
     SidebarService,
     UsuarioService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    SubirArchivoService
   ]
 })
 export class ServicesModule { }

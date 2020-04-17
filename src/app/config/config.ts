@@ -94,3 +94,59 @@ export const SWAL_ERROR = (leyenda: string, time: number) => {
   });
 };
 
+export const SWAL_UPDATE = (leyenda: string, parametro?: any) => {
+  let timerInterval;
+  let texto: string;
+  if (parametro) {
+    texto = `${leyenda} ${parametro}.`;
+  } else {
+    texto = `${leyenda}.`;
+  }
+
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    // title: 'Debe De Aceptar Los Terminos y Condiciones.',
+    text: texto,
+    toast: true,
+    timer: 2200,
+    timerProgressBar: true,
+    width: 380,
+    onBeforeOpen: () => {
+      Swal.showLoading();
+      timerInterval = setInterval(() => {
+        const content = Swal.getContent();
+        if (content) {
+          const b: any = content.querySelector('b');
+          if (b) {
+            b.textContent = Swal.getTimerLeft();
+          }
+        }
+      }, 100);
+    },
+
+    onOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer);
+      toast.addEventListener('mouseleave', Swal.resumeTimer);
+    },
+    onClose: () => {
+      clearInterval(timerInterval);
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log('I was closed by the timer');
+    }
+  });
+};
+
+interface Usuario {
+  nombre: string;
+  email: string;
+  password: string;
+  img?: string;
+  role?: string;
+  google?: boolean;
+  id_usuario?: number;
+}
+

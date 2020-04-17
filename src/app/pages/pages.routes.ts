@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 
 /**
  * CREACION DE ROUTES
@@ -42,6 +43,7 @@ const routes: Routes = [
       { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' } },
       { path: 'observables', component: RxjsComponent, data: { titulo: 'Observables' } },
       { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes del Tema' } },
+      { path: 'profile', component: ProfileComponent, data: { titulo: 'Perfil De Usuario' } },
       /* REDIRECCION */
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ]

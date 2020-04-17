@@ -9,4 +9,5 @@ export class Usuarios {
     public id_usuario?: number) {
 
   }
+
 }

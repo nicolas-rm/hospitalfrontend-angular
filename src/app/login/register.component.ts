@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
-import { UsuarioService } from '../services/services.index';
-import { Usuarios } from '../models/usuarios.models';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SWAL_ERROR } from '../config/config';
+import { Usuarios } from '../models/usuarios.models';
+import { UsuarioService } from '../services/services.index';
 
 /**
  * DECLARACION A LA FUNCION, QUE SE ENCUENTRA EN CUSTOM.JS
@@ -80,7 +79,8 @@ export class RegisterComponent implements OnInit {
     /* SERVICIO PARA LA CREACION DE UN USUARIO */
     this._USUARIOSERVICES.create(usuario).subscribe(
       (resp) => {
-        console.log(resp);
+        console.log('Usuario Creado Correctamente: ', resp);
+
         /* REDIRECCIONAMIENTO AL LOGIN DESPUES DE QUE TODO SALE BIEN */
         this.router.navigate(['/login']);
       });

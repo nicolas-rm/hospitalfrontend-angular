@@ -29,7 +29,14 @@ export class LoginComponent implements OnInit {
 
   auth2: any;
 
-  constructor(public router: Router, public _USUARIOSERVICES: UsuarioService) { }
+  constructor(public router: Router, public _USUARIOSERVICES: UsuarioService) {
+    this.email = localStorage.getItem('email') || '';
+    if (this.email.length > 1) {
+      /* MARCADO DEL CHECK DE RECUERDAME */
+      this.recuerdame = true;
+    }
+    // console.log(this.email);
+  }
   ngOnInit(): void {
     /* LLAMADO A LA FUNCION, PARA LA CORRECION DE ERRORES */
     init_plugins();
@@ -38,11 +45,9 @@ export class LoginComponent implements OnInit {
     this.googleInit();
 
     /* DATO DEL EMAIL EN EL INPUT */
-    this.email = localStorage.getItem('email') || '';
-    if (this.email.length > 1) {
-      /* MARCADO DEL CHECK DE RECUERDAME */
-      this.recuerdame = true;
-    }
+    // this.email = localStorage.getItem('email');
+    // console.log(this.email);
+
   }
 
 
@@ -61,8 +66,8 @@ export class LoginComponent implements OnInit {
 
   attachSignIn(element: any) {
     this.auth2.attachClickHandler(element, {}, (googleUser: any) => {
-      // const profile = googleUser.getBasicProfile();
-      // console.log(profile);
+      const profile = googleUser.getBasicProfile();
+      console.log(profile.gL);
 
       const token = googleUser.getAuthResponse().id_token;
       this._USUARIOSERVICES.loginGoogle(token).subscribe((resp) => {

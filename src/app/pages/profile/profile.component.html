@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"> Perfil Del Usuario</h4>
+        <h6 class="card-subtitle">Usuario</h6>
+        <form ngNativeValidate #f="ngForm" (ngSubmit)="actualizarUsuario(f.value)" #form="ngForm" class="form p-t-20">
+          <div class="form-group">
+            <label for="exampleInputuname">Nombre Del Usuario</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input [ngModel]="usuario.nombre" name="nombre" type="text" class="form-control" id="exampleInputuname"
+                placeholder="Nombre Del Usuario" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo Electronico</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+              <input [ngModel]="usuario.email" [disabled]="usuario.google" name="email" type="email"
+                class="form-control" id="exampleInputEmail1" placeholder="Correo Electronico" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-save"></i>
+            Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"> Fotografia Del Usuario</h4>
+
+        <!-- <img src="../../../assets/images/angular.png" class="card-img-top img-size" alt=""> -->
+        <!-- <div class="card-body card-size">
+                     <img *ngIf="!imagenTemp && !game.image" [src]="imgDefault" class="">  -->
+        <img *ngIf="!imagenTemp" [src]="_USUARIOSERVICES.usuario.img | imagen" class="card-img-top img-size" alt="">
+        <img *ngIf="imagenTemp" [src]="imagenTemp" class="card-img-top img-size" alt="">
+
+        <hr>
+        <!-- <div class="card"> -->
+
+        <input (change)="seleccionImagen($event.target.files[0])" class="fileinput btn-block" type="file" name="" id="">
+
+        <button (click)="cambiarImagen()" [disabled]="!imagenSubir"
+          class="btn btn-block btn-success waves-effect waves-light"><i class="fa fa-save"></i> Actualizar
+          Foto</button>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
