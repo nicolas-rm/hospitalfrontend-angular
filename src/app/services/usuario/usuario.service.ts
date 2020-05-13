@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { SWAL_CREATE, SWAL_UPDATE, URL_SERVICIOS } from '../../config/config';
+import { SWAL_CREATE, SWAL_UPDATE, URL_SERVICIOS, SWAL_DELETE } from '../../config/config';
 import { Usuarios } from '../../models/usuarios.models';
 
 @Injectable({
@@ -127,6 +127,30 @@ export class UsuarioService {
       );
    }
 
+
+   read(offset: number = 0) {
+      const URL = URL_SERVICIOS + '/usuario?offset=' + offset;
+      return this.http.get(URL).pipe(map((resp: any) => {
+         const usuarios: Usuarios[] = [];
+
+         resp.DATOS.forEach(element => {
+            usuarios.push({
+               nombre: element.NOMBRE,
+               email: element.EMAIL,
+               password: element.PASSWORD,
+               img: element.IMG,
+               role: element.ROLE,
+               google: element.GOOGLE,
+               id_usuario: element.ID_USUARIO
+            });
+         });
+
+
+         resp.DATOS = usuarios;
+         return resp;
+      }));
+   }
+
    update(usuario: Usuarios) {
       /* URL DEL SERVICIO DE USUARIO */
       const token = '?token=' + this.token;
@@ -134,14 +158,36 @@ export class UsuarioService {
 
       return this.http.put(URL, usuario).pipe(
          map((resp: any) => {
-            /* GUARDAR EN EL STORAGE */
-            this.guardarStorage(resp.DATOS.ID_USUARIO, this.token, resp.DATOS);
+
+
+            if (usuario.id_usuario === this.usuario.id_usuario) {
+
+               /* GUARDAR EN EL STORAGE */
+               this.guardarStorage(resp.DATOS.ID_USUARIO, this.token, resp.DATOS);
+            }
+
 
             /* CREACION DEL MODAL */
             SWAL_UPDATE('Usuario Actualizado Correctamente', usuario.nombre);
+
             return true;
          }),
       );
+   }
+
+   actualizar() {
+
+   }
+
+   delete(usuario: Usuarios) {
+      const token = '?token=' + this.token;
+      const URL = URL_SERVICIOS + '/usuario/' + usuario.id_usuario + token;
+
+      return this.http.delete(URL).pipe(map((resp) => {
+         SWAL_DELETE('Usuario', usuario.nombre);
+
+         return true;
+      }));
    }
 
    cambiarImagen(archivo: File, id: number) {
@@ -151,10 +197,7 @@ export class UsuarioService {
             console.log('RESP: ', resp);
 
             // this.usuario.img = resp.DATO.IMG;
-            SWAL_UPDATE(
-               'Imagen Actualizada Correctamente',
-               this.usuario.nombre,
-            );
+            SWAL_UPDATE('Imagen Actualizada Correctamente', this.usuario.nombre);
 
             this.guardarStorage(id, this.token, resp.DATO);
             this.cargarStorage();
@@ -163,6 +206,32 @@ export class UsuarioService {
          .catch((err) => {
             console.error(err);
          });
+   }
+
+
+   buscarUsuario(termino: string) {
+      const URL = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+
+      return this.http.get(URL).pipe(map((resp: any) => {
+         console.log(resp);
+
+         const usuarios: Usuarios[] = [];
+
+         resp.USUARIOS.forEach(element => {
+            usuarios.push({
+               nombre: element.NOMBRE,
+               email: element.EMAIL,
+               password: element.PASSWORD,
+               img: element.IMG,
+               role: element.ROLE,
+               google: element.GOOGLE,
+               id_usuario: element.ID_USUARIO
+            });
+         });
+
+
+         return usuarios;
+      }));
    }
 
    intercambio() {

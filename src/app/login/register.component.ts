@@ -47,8 +47,8 @@ export class RegisterComponent implements OnInit {
 
     /* LLENADO DEL FORMULARIO DE FORMA AUTOMATICA: PARA PRACTICAR */
     this.forma.setValue({
-      nombre: 'Nicolás Rincón Mújica',
-      email: 'nicolas.rm540@gmail.com',
+      nombre: 'Test 1',
+      email: 'test1@test.com',
       password: '123456',
       password2: '123456',
       condiciones: true
@@ -82,7 +82,7 @@ export class RegisterComponent implements OnInit {
         console.log('Usuario Creado Correctamente: ', resp);
 
         /* REDIRECCIONAMIENTO AL LOGIN DESPUES DE QUE TODO SALE BIEN */
-        this.router.navigate(['/login']);
+        this.router.navigate(['/register']);
       });
   }
 
