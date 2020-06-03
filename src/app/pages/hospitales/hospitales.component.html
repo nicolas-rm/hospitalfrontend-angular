@@ -1,0 +1,85 @@
+<div class="row animated fateIn">
+   <div class="col-12">
+      <div class="card">
+         <div class="card-body">
+            <input #input (keyup)="buscarHospital(input.value)" type="text" class="form-control"
+               placeholder="Buscar Usuario." />
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="row animated fateIn" *ngIf="cargando">
+   <div class="col-sm-12">
+      <div class="alert alert-warning text-center">
+         <strong>Cargando</strong> <br />
+         <i class="fa fa-refresh fa-spin fa-2x"></i> <br />
+         <span>Espere Porfavor</span>
+      </div>
+   </div>
+</div>
+
+<div class="row animated fateIn" *ngIf="archivos">
+   <div class="col-sm-12">
+      <div class="alert alert-warning text-center pointer" (click)="crearHospital()">
+         <span>No Se Encontro Ningun Registro.</span>
+         <!-- <strong></strong> <br /> -->
+         <br>
+         <i class="mdi mdi-file-multiple fa-spin fa-2x"></i> <br />
+         <span>Click Para Crear Un Registro</span>
+      </div>
+   </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="!cargando && !archivos">
+   <div class="col-md-12">
+      <div class="card">
+         <div class="card-body">
+            <button (click)="crearHospital()" type="button"
+               class="btn waves-effect waves-light btn-rounded btn-primary pull-right"><i class="fa fa-plus"></i>
+               Crear Hospital
+            </button>
+            <h3 class="card-title">
+               Total De Registros (<span> {{ totalDeRegistros }} </span>)
+            </h3>
+            <table id="tablaDatos" data-sort="false" class="table table-hover toggle-arrow-tiny">
+               <thead>
+                  <tr>
+                     <th data-toggle="true">Imagen</th>
+                     <th class="w150">Nombre</th>
+                     <th class="w150" data-hide="phone,tablet">Config</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let hospital of hospitales; let i = index">
+                     <td class="w70">
+                        <img (click)="actualizarImagen(hospital.id_hospital)" onload="cambios()"
+                           [src]="hospital.img | imagen:'hospitales'" class="img-50 pointer">
+                        <!-- <img  [src]="'11-20204617516149.jpg' | imagen" class="img-50 img-circle pointer" /> -->
+
+                        <!-- <img [src]="'11-20204617516149.jpg' | imagen" class="img-50 img-circle pointer" /> -->
+                     </td>
+
+                     <td>
+                        <input type="text" [(ngModel)]="hospital.nombre" class="form-control" name="nombre">
+                     </td>
+
+                     <td>
+                        <button (click)="guardarHospital(hospital)" class="btn btn-primary"><i
+                              class="fa fa-save"></i></button>
+
+                        <button (click)="eliminarHospital(hospital)" class="btn btn-danger"><i
+                              class="fa fa-trash-o"></i></button>
+                     </td>
+                  </tr>
+               </tbody>
+               <!-- <tfoot>
+          </tfoot> -->
+            </table>
+            <hr />
+            <button (click)="cambiarDesde(-5)" class="btn btn-secondary">Anteriores</button>
+            <button (click)="cambiarDesde(5)" class="btn btn-secondary ">Siguientes</button>
+         </div>
+      </div>
+   </div>
+</div>

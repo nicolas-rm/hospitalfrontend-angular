@@ -32,6 +32,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
 
 /* ==================>> COMPONENTES <<================== */
 /* ===================================================== */
@@ -40,62 +42,66 @@ import { ProfileComponent } from './profile/profile.component';
 /* =====================>> RUTAS <<===================== */
 import { PAGES_ROUTES } from './pages.routes';
 import { CommonModule } from '@angular/common';
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 /* =====================>> RUTAS <<===================== */
 /* ===================================================== */
 
 @NgModule({
-  /**
-   * DECLARACIONES: TODOS LOS COMPONENTES
-   * EN LA SECCION ACTUAL (PAGINAS)
-   */
-  declarations: [
-    PagesComponent,
-    DashboardComponent,
-    ProgressComponent,
-    Graficas1Component,
-    IncrementadorComponent,
-    GraficoDonaComponent,
-    AccountSettingsComponent,
-    PromesasComponent,
-    RxjsComponent,
-    ProfileComponent,
-    UsuariosComponent,
-    ModalUploadComponent
-  ],
-  /**
-   * EXPORTACIONES: TODOS LOS COMPONENTES
-   * QUE SE UTILIZACION FUERA DE LA
-   * SECCION ACTUAL (PAGINAS)
-   */
-  exports: [
-    DashboardComponent,
-    ProgressComponent,
-    Graficas1Component,
-    GraficoDonaComponent,
-  ],
-  /**
-   * IMPORTACIONES: TODO LO QUE NO PERTENECE
-   * A LA SECCION ACTUAL (PAGINAS)
-   * --> TODO LO QUE SE USA EN LA SECCION (PAGINAS)
-   * PERO ES EXTERNO (OTRAS SECCIONES) <--
-   *
-   */
-  imports: [
-    CommonModule,
-    /*  */
-    SharedModulo,
-    /* RUTAS DE TODAS LA PAGINAS */
-    PAGES_ROUTES,
-    /* UTILIZACION DEL NGMODEL */
-    FormsModule,
-    /* CREACION DE GRAFICAS */
-    ChartsModule,
-    /* UTILIZACION DE ESTRUCTURAS CONDICIONALES Y REPETITIVAS */
-    BrowserModule,
-    /* PODER UTILIZAR LOS PIPES CREADOS */
-    PipesModule,
-  ],
+   /**
+    * DECLARACIONES: TODOS LOS COMPONENTES
+    * EN LA SECCION ACTUAL (PAGINAS)
+    */
+   declarations: [
+      PagesComponent,
+      DashboardComponent,
+      ProgressComponent,
+      Graficas1Component,
+      IncrementadorComponent,
+      GraficoDonaComponent,
+      AccountSettingsComponent,
+      PromesasComponent,
+      RxjsComponent,
+      ProfileComponent,
+      UsuariosComponent,
+      ModalUploadComponent,
+      HospitalesComponent,
+      MedicosComponent,
+      MedicoComponent
+   ],
+   /**
+    * EXPORTACIONES: TODOS LOS COMPONENTES
+    * QUE SE UTILIZACION FUERA DE LA
+    * SECCION ACTUAL (PAGINAS)
+    */
+   exports: [
+      DashboardComponent,
+      ProgressComponent,
+      Graficas1Component,
+      GraficoDonaComponent,
+   ],
+   /**
+    * IMPORTACIONES: TODO LO QUE NO PERTENECE
+    * A LA SECCION ACTUAL (PAGINAS)
+    * --> TODO LO QUE SE USA EN LA SECCION (PAGINAS)
+    * PERO ES EXTERNO (OTRAS SECCIONES) <--
+    *
+    */
+   imports: [
+      CommonModule,
+      /*  */
+      SharedModulo,
+      /* RUTAS DE TODAS LA PAGINAS */
+      PAGES_ROUTES,
+      /* UTILIZACION DEL NGMODEL */
+      FormsModule,
+      /* CREACION DE GRAFICAS */
+      ChartsModule,
+      /* UTILIZACION DE ESTRUCTURAS CONDICIONALES Y REPETITIVAS */
+      BrowserModule,
+      /* PODER UTILIZAR LOS PIPES CREADOS */
+      PipesModule,
+   ],
 })
 export class PagesModule { }

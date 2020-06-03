@@ -39,37 +39,37 @@ import { ServicesModule } from './services/services.module';
 
 
 @NgModule({
-  /**
-   * DECLARACIONES: TODOS LOS COMPONENTES
-   * EN LA SECCION ACTUAL (PRINCIPAL)
-   */
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
-  /**
-   * IMPORTACIONES: TODO LO QUE NO PERTENECE
-   * A LA SECCION ACTUAL (PRINCIPAL)
-   * --> TODO LO QUE SE USA EN LA SECCION (PRINCIPAL)
-   * PERO ES EXTERNO (OTRAS SECCIONES) <--
-   *
-   */
-  imports: [
-    /* UTILIZACION DE CICLOS Y CONDICIONALES */
-    BrowserModule,
-    /* IMPORTACION DE LAS RUTAS PRINCIPALES */
-    APP_ROUTES,
-    /* CONFIGURACION DE TODAS LAS PAGINAS */
-    PagesModule,
-    /* UTILIZACION DEL NGMODEL */
-    FormsModule,
-    /* UTILIZAR VALIDACIONES POR PARTE DEL TS | UTILIZACION DEL FORMGROUP*/
-    ReactiveFormsModule,
-    /* UTILIZACION DE LOS SERVICIOS CORRESPONDIENTES */
-    ServicesModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   /**
+    * DECLARACIONES: TODOS LOS COMPONENTES
+    * EN LA SECCION ACTUAL (PRINCIPAL)
+    */
+   declarations: [
+      AppComponent,
+      LoginComponent,
+      RegisterComponent
+   ],
+   /**
+    * IMPORTACIONES: TODO LO QUE NO PERTENECE
+    * A LA SECCION ACTUAL (PRINCIPAL)
+    * --> TODO LO QUE SE USA EN LA SECCION (PRINCIPAL)
+    * PERO ES EXTERNO (OTRAS SECCIONES) <--
+    *
+    */
+   imports: [
+      /* UTILIZACION DE CICLOS Y CONDICIONALES */
+      BrowserModule,
+      /* IMPORTACION DE LAS RUTAS PRINCIPALES */
+      APP_ROUTES,
+      /* CONFIGURACION DE TODAS LAS PAGINAS */
+      PagesModule,
+      /* UTILIZACION DEL NGMODEL */
+      FormsModule,
+      /* UTILIZAR VALIDACIONES POR PARTE DEL TS | UTILIZACION DEL FORMGROUP*/
+      ReactiveFormsModule,
+      /* UTILIZACION DE LOS SERVICIOS CORRESPONDIENTES */
+      ServicesModule
+   ],
+   providers: [],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }

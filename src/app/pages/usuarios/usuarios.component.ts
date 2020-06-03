@@ -21,7 +21,7 @@ export class UsuariosComponent implements OnInit {
    cargando: boolean = true;
 
 
-   constructor(public _USUARIOSERVICES: UsuarioService, @Inject(DOCUMENT) private _DOCUMENT, public _MODALUPLOADSERVICES: ModalUploadService) {
+   constructor(public _USUARIOSERVICES: UsuarioService, public _MODALUPLOADSERVICES: ModalUploadService) {
 
    }
 
@@ -41,8 +41,6 @@ export class UsuariosComponent implements OnInit {
          console.log(resp);
          this.totalRegistros = resp.DOCUMENTOS;
          this.usuarios = resp.DATOS;
-         // window.onload = cambios();
-         // cambios();
          this.cargando = false;
       });
 
